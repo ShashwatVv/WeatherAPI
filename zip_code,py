@@ -1,0 +1,8 @@
+import pyowm
+
+owm = pyowm.OWM('API_KEY') #use your  authentic API_KEY from https://openweathermap.org/
+obs = owm.weather_at_zip_code('<zipcode>', '<countrycode>') #replace zipcode and countrycode with relevant data 
+weather = obs.get_weather()
+temperature = weather.get_temperature(unit='fahrenheit')['temp']#alternative unit = 'celsius'
+
+print('The temperature is ' + str(temperature) + ' degrees Fahrenheit.')
